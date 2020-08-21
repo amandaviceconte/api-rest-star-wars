@@ -1,16 +1,24 @@
 const express = require('express');
-
+const mongoose = require('mongoose');
+const db = mongoose.connect('mongodb://localhost/planetAPI');
 const app = express();
-const bookRouter = express.Router();
+const planetRouter = express.Router();
 const port = process.env.PORT || 3000;
+const Planet = require('./models/planetModel');
 
-bookRouter.route('/books')
-  .get((req, res) => {
-
+planetRouter.route('/planets').get((req, res) => {
+  Planet.find((err, planets) => {
+    if (err) {
+      return res.send(err);
+    }
+    return res.json(planets);
   });
+});
+
+app.use('/api', planetRouter);
 
 app.get('/', (req, res) => {
-  res.send('Welcome to my nodemon API!');
+  res.send('API');
 });
 
 app.listen(port, () => {
