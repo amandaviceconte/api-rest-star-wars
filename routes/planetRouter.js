@@ -1,33 +1,16 @@
 const express = require('express');
+const planetsController = require('../controllers/planetsController');
 
 function routes(Planet) {
   const planetRouter = express.Router();
+  const controller = planetsController(Planet);
 
   planetRouter
     .route('/planets')
 
-    .post((req, res) => {
-      const planet = new Planet(req.body);
+    .post(controller.post)
 
-      planet.save();
-
-      return res.status(201).json(planet);
-    })
-
-    .get((req, res) => {
-      const query = {};
-
-      if (req.query.nome) {
-        query.nome = req.query.nome;
-      }
-      Planet.find(query, (err, planets) => {
-        if (err) {
-          return res.send(err);
-        }
-
-        return res.json(planets);
-      });
-    });
+    .get(controller.get);
 
   planetRouter.use('/planets/:planetId', (req, res, next) => {
     Planet.findById(req.params.planetId, (err, planet) => {
