@@ -42,14 +42,21 @@ function routes(Planet) {
 
       return res.sendStatus(404);
     });
-  })
+  });
 
   planetRouter
     .route('/planets/:planetId')
 
     .get((req, res) => res.json(req.planet))
 
-    .delete((req, res) => {});
+    .delete((req, res) => {
+      req.planet.remove((err) => {
+        if (err) {
+          return res.send(err);
+        }
+        return res.sendStatus(204);
+      });
+    });
 
   return planetRouter;
 }
