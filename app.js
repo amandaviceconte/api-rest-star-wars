@@ -6,7 +6,7 @@ const app = express();
 const db = mongoose.connect('mongodb://localhost/planetAPI');
 const port = process.env.PORT || 3000;
 const Planet = require('./models/planetModel');
-const planetRouter = require('./routes/planetRouter')();
+const planetRouter = require('./routes/planetRouter')(Planet);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

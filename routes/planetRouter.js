@@ -1,7 +1,6 @@
 const express = require('express');
-const Planet = require('../models/planetModel');
 
-function routes() {
+function routes(Planet) {
   const planetRouter = express.Router();
 
   planetRouter
@@ -30,15 +29,27 @@ function routes() {
       });
     });
 
-
-  planetRouter.route('/planets/:planetId').get((req, res) => {
+  planetRouter.use('/planets/:planetId', (req, res, next) => {
     Planet.findById(req.params.planetId, (err, planet) => {
       if (err) {
         return res.send(err);
       }
-      return res.json(planet);
+
+      if (planet) {
+        req.planet = planet;
+        return next();
+      }
+
+      return res.sendStatus(404);
     });
-  });
+  })
+
+  planetRouter
+    .route('/planets/:planetId')
+
+    .get((req, res) => res.json(req.planet))
+
+    .delete((req, res) => {});
 
   return planetRouter;
 }
