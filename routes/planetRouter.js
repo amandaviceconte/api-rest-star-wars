@@ -37,7 +37,7 @@ function routes(Planet) {
         if (err) {
           return res.send(err);
         }
-        return res.sendStatus(204);
+        return res.status(200).json({ Deleted: req.planet });
       });
     });
 
