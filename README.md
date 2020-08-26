@@ -40,12 +40,15 @@ Em uma requisição do tipo POST, utilize a url:
 
 #### Para buscar um planeta pelo nome:
 
-> `http://localhost:4000/api/planets/name/<nome do planeta>`
+> `http://localhost:4000/api/planets?name=<nome do planeta>`
 
 > Exemplos:
 
 ```
-http://localhost:4000/api/planets/name/Mustafar
-http://localhost:4000/api/planets/name/Yavin 4
+http://localhost:4000/api/planets?name=Mustafar
+http://localhost:4000/api/planets?name=Yavin 4
 ```
+
+#### Para remover um planeta, envie uma requisição HTTP DELETE por uma ferramenta como o [Postman](https://www.postman.com/downloads/), utilizando a URL:
+`http://localhost:4000/api/planets/{_id}`
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
