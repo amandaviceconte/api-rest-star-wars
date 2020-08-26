@@ -16,7 +16,7 @@ Caso queira popular o banco com alguns exemplos de planetas já prontos, baixe o
 <p>Isto irá popular o banco com o conteúdo de planetsJson.js.</p>
 
 #### Para adicionar um novo planeta, utilize uma ferramenta como o [Postman](https://www.postman.com/downloads/) para enviar as requisições HTTP
-<li>Em uma requisição do tipo POST, utilize a url:</li>
+Em uma requisição do tipo POST, utilize a url:
 
 > `http://localhost:4000/api/planets`
 
