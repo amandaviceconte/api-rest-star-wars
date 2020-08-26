@@ -30,16 +30,27 @@ function routes(Planet) {
   planetRouter
     .route('/planets/:planetId')
 
-    .get((req, res) => res.json(req.planet))
+    // .get((req, res) => res.json(req.planet))
+    .get(controller.getById)
+    // .get((req, res) => {
+    //   const returnPlanet = req.planet.toJSON();
 
-    .delete((req, res) => {
-      req.planet.remove((err) => {
-        if (err) {
-          return res.send(err);
-        }
-        return res.status(200).json({ Deleted: req.planet });
-      });
-    });
+    //   returnPlanet.links = {};
+    //   const name = req.planet.name.replace(' ', '%20');
+    //   returnPlanet.links.FilterByThisName = `http://${req.headers.host}/api/planets?name=${name}`;
+    //   res.json(returnPlanet);
+    // })
+
+    .delete(controller.deleteById);
+
+  // .delete((req, res) => {
+  //   req.planet.remove((err) => {
+  //     if (err) {
+  //       return res.send(err);
+  //     }
+  //     return res.status(200).json({ Deleted: req.planet });
+  //   });
+  // });
 
   return planetRouter;
 }

@@ -37,11 +37,35 @@ function planetsController(Planet) {
       if (err) {
         return res.send(err);
       }
-
+      // const returnPlanets = planets.map((planet) => {
+      //   const newPlanet = planet.toJSON();
+      //   newPlanet.links = {};
+      //   newPlanet.links.self = `http://${req.headers.host}/api/planets/${planet._id}`;
+      //   return newPlanet;
+      // });
+      // return res.json(returnPlanets);
       return res.json(planets);
     });
   }
-  return { post, get };
+
+  function getById(req, res) {
+    const returnPlanet = req.planet.toJSON();
+    // returnPlanet.links = {};
+    // const name = req.planet.name.replace(' ', '%20');
+    // returnPlanet.links.FilterByThisName = `http://${req.headers.host}/api/planets?name=${name}`;
+    res.json(returnPlanet);
+  }
+
+  function deleteById(req, res) {
+    req.planet.remove((err) => {
+      if (err) {
+        return res.send(err);
+      }
+      return res.status(200).json({ Deleted: req.planet });
+    });
+  }
+
+  return { post, get, getById, deleteById };
 }
 
 module.exports = planetsController;
