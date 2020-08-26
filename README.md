@@ -4,16 +4,16 @@
 
 <p>Baixe o projeto e rode em um terminal no diretório do projeto o seguinte comando para baixar os pacotes: </p>
 
-`npm install`
+>`npm install`
 <p>Após finalizadas as instalações, rode o projeto:</p>
 
-`npm start`
+>`npm start`
 <p>Caso queira popular o banco com alguns exemplos de planetas já prontos, primeiro rode:</p>
 
-`mongod`
+> `mongod`
 <p>Em um novo terminal, ainda no diretório do projeto, rode:</p>
 
-> mongo planetAPI < planetsJson.js
+> `mongo planetAPI < planetsJson.js`
 <p>Isto irá popular o banco com o conteúdo de planetsJson.js</p>
 
 ### Caso queira adicionar um novo planeta, utilize uma ferramenta como o [Postman](https://www.postman.com/downloads/) para enviar as requisições HTTP
