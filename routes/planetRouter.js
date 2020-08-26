@@ -10,7 +10,7 @@ function routes(Planet) {
     .post(controller.post)
     .get(controller.get);
 
-  planetRouter.use('/planets/id/:planetId', (req, res, next) => {
+  planetRouter.use('/planets/:planetId', (req, res, next) => {
     Planet.findById(req.params.planetId, (err, planet) => {
       if (err) {
         return res.send(err);
@@ -26,7 +26,7 @@ function routes(Planet) {
   });  
 
   planetRouter
-    .route('/planets/id/:planetId')
+    .route('/planets/:planetId')
     .get(controller.getById)
     .delete(controller.deleteById);
 

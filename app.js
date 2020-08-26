@@ -5,11 +5,10 @@ const bodyParser = require('body-parser');
 const app = express();
 
 if (process.env.ENV === 'Test') {
-  console.log('This is a test');
+  console.log('Test environment');
   const db = mongoose.connect('mongodb://localhost/planetAPI_Test');
 } else {
-  console.log('This is for real');
-  // const db = mongoose.connect('mongodb://localhost/planetAPI-prod');
+  console.log('Prod environment');
   const db = mongoose.connect('mongodb://localhost/planetAPI');
 }
 
