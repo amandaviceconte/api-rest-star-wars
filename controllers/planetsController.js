@@ -6,12 +6,10 @@ function planetsController(Planet) {
       res.status(400);
       return res.send('Name is required');
     }
-
     if (!req.body.climate) {
       res.status(400);
       return res.send('Climate is required');
     }
-
     if (!req.body.terrain) {
       res.status(400);
       return res.send('Terrain is required');
@@ -19,6 +17,7 @@ function planetsController(Planet) {
 
     planet.save();
     res.status(201);
+
     return res.json(planet);
   }
 
@@ -28,7 +27,6 @@ function planetsController(Planet) {
     if (req.query.name) {
       query.name = req.query.name;
     }
-
     if (req.query.id) {
       query.id = req.query.id;
     }
@@ -37,23 +35,28 @@ function planetsController(Planet) {
       if (err) {
         return res.send(err);
       }
-      // const returnPlanets = planets.map((planet) => {
-      //   const newPlanet = planet.toJSON();
-      //   newPlanet.links = {};
-      //   newPlanet.links.self = `http://${req.headers.host}/api/planets/${planet._id}`;
-      //   return newPlanet;
-      // });
-      // return res.json(returnPlanets);
+
       return res.json(planets);
     });
   }
 
   function getById(req, res) {
-    const returnPlanet = req.planet.toJSON();
-    // returnPlanet.links = {};
-    // const name = req.planet.name.replace(' ', '%20');
-    // returnPlanet.links.FilterByThisName = `http://${req.headers.host}/api/planets?name=${name}`;
-    res.json(returnPlanet);
+    return res.json(req.planet.toJSON());
+  }
+
+  function getByName(req, res) {
+    Planet.findOne({ name: req.params.planetName }, (err, planet) => {
+      if (err) {
+        return res.send(err);
+      }
+
+      if (planet) {
+        return res.json(planet);
+      }
+
+      res.status(400);
+      return res.send('Planet not found');
+    });
   }
 
   function deleteById(req, res) {
@@ -61,11 +64,11 @@ function planetsController(Planet) {
       if (err) {
         return res.send(err);
       }
+
       return res.status(200).json({ Deleted: req.planet });
     });
   }
-
-  return { post, get, getById, deleteById };
+  return { post, get, getById, getByName, deleteById };
 }
 
 module.exports = planetsController;
