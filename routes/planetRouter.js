@@ -30,10 +30,6 @@ function routes(Planet) {
     .get(controller.getById)
     .delete(controller.deleteById);
 
-  planetRouter
-    .route('/planets/name/:planetName')
-    .get(controller.getByName);
-
   return planetRouter;
 }
 

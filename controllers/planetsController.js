@@ -44,21 +44,6 @@ function planetsController(Planet) {
     return res.json(req.planet.toJSON());
   }
 
-  function getByName(req, res) {
-    Planet.findOne({ name: req.params.planetName }, (err, planet) => {
-      if (err) {
-        return res.send(err);
-      }
-
-      if (planet) {
-        return res.json(planet);
-      }
-
-      res.status(400);
-      return res.send('Planet not found');
-    });
-  }
-
   function deleteById(req, res) {
     req.planet.remove((err) => {
       if (err) {
@@ -68,7 +53,8 @@ function planetsController(Planet) {
       return res.status(200).json({ Deleted: req.planet });
     });
   }
-  return { post, get, getById, getByName, deleteById };
+  
+  return { post, get, getById, deleteById };
 }
 
 module.exports = planetsController;
