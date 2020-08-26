@@ -2,24 +2,53 @@
 ## Rodando a aplicação
 
 
-<p>Baixe o projeto e rode em um terminal no diretório do projeto o seguinte comando para baixar os pacotes: </p>
+<p>Baixe o projeto, instale os pacotes e inicie: </p>
 
-`npm install`
-<p>Após finalizadas as instalações, rode o projeto:</p>
+> `npm install`
 
-`npm start`
-<p>Caso queira popular o banco com alguns exemplos de planetas já prontos, primeiro rode:</p>
+> `npm start`
 
-`mongod`
-<p>Em um novo terminal, ainda no diretório do projeto, rode:</p>
+Caso queira popular o banco com alguns exemplos de planetas já prontos, baixe o [MongoDB](https://www.mongodb.com/try/download/community), inicie o banco e insira os dados:
 
-> mongo planetAPI < planetsJson.js
-<p>Isto irá popular o banco com o conteúdo de planetsJson.js</p>
+> `mongod`
 
-## Caso queira adicionar um novo planeta, utilize uma ferramenta como o [Postman](https://www.postman.com/downloads/) para enviar as requisições HTTP
-<li>Abra uma nova requisição no Postman</li>
-<li>Mude o tipo de requisição para POST</li>
-<li>No campo da URL, insira:</li>
+> `mongo planetAPI < planetsJson.js`
+<p>Isto irá popular o banco com o conteúdo de planetsJson.js.</p>
 
-`http://localhost:4000/api/planets`
-<li>Adicione no body um objeto JSON contendo name, climate e terrain e envie a requisição.</li>
+#### Para adicionar um novo planeta, utilize uma ferramenta como o [Postman](https://www.postman.com/downloads/) para enviar as requisições HTTP
+Em uma requisição do tipo POST, utilize a url:
+
+> `http://localhost:4000/api/planets`
+
+> Adicione no body um objeto JSON (como o exemplo a seguir) contendo name, climate e terrain:
+
+```
+{
+   "name": "Tatooine",
+   "climate": "Árido",
+   "terrain": "Deserto"
+}
+```
+
+#### Para listar todos os planetas:
+
+> `http://localhost:4000/api/planets`
+
+#### Para buscar um planeta pelo ID:
+
+> `http://localhost:4000/api/planets/<id>`
+
+#### Para buscar um planeta pelo nome:
+
+> `http://localhost:4000/api/planets?name=<nome do planeta>`
+
+> Exemplos:
+
+```
+http://localhost:4000/api/planets?name=Mustafar
+http://localhost:4000/api/planets?name=Yavin 4
+```
+
+#### Para remover um planeta, envie uma requisição HTTP DELETE por uma ferramenta como o [Postman](https://www.postman.com/downloads/), utilizando a URL:
+`http://localhost:4000/api/planets/{_id}`
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
