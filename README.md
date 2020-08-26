@@ -16,7 +16,7 @@
 > mongo planetAPI < planetsJson.js
 <p>Isto irá popular o banco com o conteúdo de planetsJson.js</p>
 
-## Caso queira adicionar um novo planeta, utilize uma ferramenta como o [Postman](https://www.postman.com/downloads/) para enviar as requisições HTTP
+### Caso queira adicionar um novo planeta, utilize uma ferramenta como o [Postman](https://www.postman.com/downloads/) para enviar as requisições HTTP
 <li>Abra uma nova requisição no Postman</li>
 <li>Mude o tipo de requisição para POST</li>
 <li>No campo da URL, insira:</li>
