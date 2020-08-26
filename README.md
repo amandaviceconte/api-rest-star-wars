@@ -19,7 +19,8 @@
 <li>Em uma requisição do tipo POST, utilize a url:</li>
 
 > `http://localhost:4000/api/planets`
-<li>Adicione no body um objeto JSON contendo name, climate e terrain.</li>
+
+> Adicione no body um objeto JSON contendo name, climate e terrain.
 
 #### Para listar todos os planetas:
 
