@@ -7,13 +7,13 @@
 > `npm install`
 
 > `npm start`
-<p>Caso queira popular o banco com alguns exemplos de planetas já prontos:</p>
+
+Caso queira popular o banco com alguns exemplos de planetas já prontos, baixe o [MongoDB](https://www.mongodb.com/try/download/community), inicie o banco e insira os dados:
 
 > `mongod`
 
 > `mongo planetAPI < planetsJson.js`
 <p>Isto irá popular o banco com o conteúdo de planetsJson.js.</p>
-<br>
 
 #### Para adicionar um novo planeta, utilize uma ferramenta como o [Postman](https://www.postman.com/downloads/) para enviar as requisições HTTP
 <li>Em uma requisição do tipo POST, utilize a url:</li>
