@@ -1,3 +1,5 @@
+const app = require('../app');
+
 function planetsController(Planet) {
   function post(req, res) {
     const planet = new Planet(req.body);
@@ -14,6 +16,8 @@ function planetsController(Planet) {
       res.status(400);
       return res.send('Terrain is required');
     }
+
+    planet.appearances = app.planetsAppearances[planet.name];
 
     planet.save();
     res.status(201);
@@ -53,7 +57,7 @@ function planetsController(Planet) {
       return res.status(200).json({ Deleted: req.planet });
     });
   }
-  
+
   return { post, get, getById, deleteById };
 }
 
