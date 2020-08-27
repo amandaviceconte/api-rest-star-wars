@@ -2,13 +2,13 @@
 
 ## Sobre o projeto
 
-#### Trata-se de uma API REST feita em node.js com informações sobre planetas do Star Wars como nome, clima, terreno e quantidade de aparições em filmes. 
+#### Trata-se de uma API REST feita em node.js com informações sobre planetas do Star Wars como *nome*, *clima*, *terreno* e *quantidade de aparições em filmes*. 
 #### Esta API permite adicionar, listar e remover planetas. Também permite que seja realizada uma busca pelo ID do planeta ou pelo nome do planeta. 
 #### A motivação por trás deste projeto foi participar de um desafio da B2W e aprimorar os meus conhecimentos em desenvolvimento back-end.
 
 ## Rodando a aplicação
 
-> Para rodar este programa será necessário ter o [MongoDB](https://www.mongodb.com/try/download/community) instalado.
+> Para rodar este programa será necessário ter o **[MongoDB](https://www.mongodb.com/try/download/community)** instalado.
 
 <p>Baixe o projeto, instale os pacotes e inicie a aplicação: </p>
 
@@ -25,7 +25,7 @@ Caso queira popular o banco de dados com alguns exemplos de planetas já prontos
 > `mongo planetAPI < planetsJson.js`
 <p>Isto irá popular o banco com o conteúdo de planetsJson.js.</p>
 
-#### Para adicionar um novo planeta, utilize uma ferramenta como o [Postman](https://www.postman.com/downloads/) para enviar as requisições HTTP
+#### Para adicionar um novo planeta, utilize uma ferramenta como o **[Postman](https://www.postman.com/downloads/)** para enviar as requisições HTTP
 Em uma requisição do tipo POST, utilize a url:
 
 > `http://localhost:4000/api/planets`
@@ -59,6 +59,6 @@ http://localhost:4000/api/planets?name=Mustafar
 http://localhost:4000/api/planets?name=Yavin 4
 ```
 
-#### Para remover um planeta, envie uma requisição HTTP DELETE por uma ferramenta como o [Postman](https://www.postman.com/downloads/), utilizando a URL:
+#### Para remover um planeta, envie uma requisição HTTP DELETE por uma ferramenta como o **[Postman](https://www.postman.com/downloads/)**, utilizando a URL:
 `http://localhost:4000/api/planets/{id}`
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
