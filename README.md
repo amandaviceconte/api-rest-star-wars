@@ -4,7 +4,7 @@
 
 #### Trata-se de uma API REST feita em node.js com informações sobre planetas do Star Wars como *nome*, *clima*, *terreno* e *quantidade de aparições em filmes*. 
 #### Esta API permite adicionar, listar e remover planetas. Também permite que seja realizada uma busca pelo ID do planeta ou pelo nome do planeta. 
-#### A motivação por trás deste projeto foi participar de um desafio da B2W e aprimorar os meus conhecimentos em desenvolvimento back-end.
+#### A motivação por trás deste projeto foi aprimorar os meus conhecimentos em desenvolvimento back-end.
 
 ## Rodando a aplicação
 
